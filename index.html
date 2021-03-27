@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyDWgL2Tnx64uY2yeg3-2TuhvlB5UpaFfXA",
+    authDomain: "ar-toy-shop.firebaseapp.com",
+    projectId: "ar-toy-shop",
+    storageBucket: "ar-toy-shop.appspot.com",
+    messagingSenderId: "762607815637",
+    appId: "1:762607815637:web:dd9bd4fd3a9dbd20c9cb5c"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+</script>
+
+  <title>AR TOY SHOP</title>
+  <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+
+  <script src="https://aframe.io/releases/0.6.0/aframe.min.js"> </script>
+  <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+  <script src="https://raw.githack.com/fcor/arjs-gestures/master/dist/gestures.js"></script>
+
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+
+    <!--SWEET ALERT-->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+     <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-firestore.js"></script>
+
+
+<script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-analytics.js"></script>
+
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyDWgL2Tnx64uY2yeg3-2TuhvlB5UpaFfXA",
+    authDomain: "ar-toy-shop.firebaseapp.com",
+    projectId: "ar-toy-shop",
+    storageBucket: "ar-toy-shop.appspot.com",
+    messagingSenderId: "762607815637",
+    appId: "1:762607815637:web:dd9bd4fd3a9dbd20c9cb5c"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+</script>
+
+  <!-- Local StyleSheet -->
+  <link href="./style.css" rel="stylesheet" />
+
+  <!--JS Files-->
+  <script src="./js/addButtons.js"></script>
+  <script src="./js/markerHandler.js"></script>
+  <script src="./js/addMarker.js"></script>
+
+</head>
+
+<body style="margin : 0px; overflow: hidden;">
+
+  <a-scene vr-mode-ui="enabled: false" embedded arjs="sourceType: webcam; 
+    sourceWidth:1280; sourceHeight:960; 
+    displayWidth: 1280; displayHeight: 960; 
+    debugUIEnabled: false;" gesture-detector create-buttons>
+
+    <!-- Camera -->
+    <a-entity camera></a-entity>
+
+    <a-assets>
+      <a-asset-item id="mcqueen_toy_car" src="./assets/mcqueen/scene.gltf"></a-asset-item>
+    </a-assets>
+
+    <!--Pattern Marker-->
+    <a-marker id="mcqueen car" type="pattern" url="assets/TO1/pattern-mcqueen.patt" cursor="rayOrigin: mouse">
+      
+      <a-entity id="mcqueen_toy_car" position="-1 0 0" scale="0.05 0.05 0.05" 
+        gltf-model="#mcqueen_toy_car"
+        gesture-handler>
+      </a-entity>
+
+
+      <!---->
+      <a-plane position="0 0 0" width="1.5" height="1.5" rotation="-90 0 0">
+        <a-plane position="0 0.89 0.02" width="1.49" height="0.3" rotation="0 0 0" color="#F0C30F">
+          <a-entity position="0 0 0.1" rotation="0 0 0"
+            text="font:monoid;value:Mcqueen_Toy_Car;color:black;width: 1.8;height:1;align:center;"></a-entity>
+        </a-plane>
+
+        <a-entity position="0 0 0.1" rotation="0 0 0"
+          text="color: black; align: center; width: 2; font: monoid;
+               value:It is the Fastest car in the world. it goes at speed of 100kph in just 1 second. it is the famous car in the world. 
+               it has won many car race,just because of it's magnificient speed. it's very smooth to drive.
+               And you can win this car at a very cheaply price of just 6$">
+        </a-entity>
+      </a-plane>
+
+    </a-marker>
+
+
+  </a-scene>
+
+  <!-- Button Main Div -->
+  <div id="button-div"></div>
+
+</body>
+
+</html>
